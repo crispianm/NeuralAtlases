@@ -5,7 +5,7 @@
         432
     ],
     "foreground_class": "modnet",
-    "foreground_layers": 2,
+    "foreground_layers": 6,
     "log_every": 0,
     "save_every": 100,
     "evaluate_every": 10000,

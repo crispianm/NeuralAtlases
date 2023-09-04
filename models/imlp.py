@@ -64,6 +64,16 @@ class IMLP(nn.Module, ABC):
         mapped_coords = torch.cat((torch.sin(proj), torch.cos(proj)), dim=1)
         output = mapped_coords.transpose(2, 1).contiguous().flatten(1, -1)
         return output
+    
+    @staticmethod
+    def multiresolution_hash_encoding(x, b):
+        # x: (batch_size, input_dim)
+        # b: (positional_dim, input_dim)
+        # output: (batch_size, positional_dim, input_dim)
+        proj = torch.einsum('ij, kj -> ik', x, b)
+        mapped_coords = torch.cat((torch.sin(proj), torch.cos(proj)), dim=1)
+        output = mapped_coords.transpose(2, 1).contiguous().flatten(1, -1)
+        return output
 
     def forward(self, x):
         if self.use_positional:
