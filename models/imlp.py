@@ -112,9 +112,8 @@ class IMLP(nn.Module, ABC):
 class StackedIMLP(nn.Module, ABC):
     def __init__(self, n_models: int = 1, *args, **kwargs):
         super(StackedIMLP, self).__init__()
-
         self.models = nn.ModuleList([IMLP(*args, **kwargs) for _ in range(n_models)])
-
+        
     def forward(self, input: torch.Tensor):
         outputs = []
 

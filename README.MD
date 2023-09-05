@@ -52,7 +52,7 @@ You can create an anaconda environment called ``neural_atlases`` with the requir
 ```bash
 conda create --name neural_atlases python=3.7 
 conda activate neural_atlases 
-conda install pytorch=1.6.0 torchvision=0.7.0 cudatoolkit=10.1 scipy scikit-image tqdm opencv -c pytorch
+conda install pytorch=1.11.0 torchvision=0.12.0 cudatoolkit=11.3 scipy scikit-image tqdm opencv -c pytorch
 python -m pip install wandb
 ```
 
